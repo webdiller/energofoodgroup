@@ -8,7 +8,7 @@ import { SectionTable, type TableRow } from "./components/widgets/SectionTable"
 type Props = {}
 
 const tableData: TableRow[] = [
-  { pos: "Haru", sales: 10, score: 30 },
+  { pos: "Ha22ru", sales: 10, score: 30 },
   { pos: "Ateci", sales: 0, score: 0 },
   { pos: "CY Cafe", sales: 0, score: 0 },
   { pos: "Fuel Cafe", sales: 0, score: 0 },
