@@ -8,7 +8,11 @@ interface SlideItem {
   description?: string
 }
 
-const SLIDE_ITEMS: SlideItem[] = [{ image: "./1.jpeg" }, { image: "./2.jpeg" }, { image: "./3.jpeg" }]
+const SLIDE_ITEMS: SlideItem[] = [
+  { image: "./energofoodgroup/1.jpeg" },
+  { image: "./energofoodgroup/2.jpeg" },
+  { image: "./energofoodgroup/3.jpeg" }
+]
 
 export const SectionCarousel = () => {
   return (
