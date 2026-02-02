@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+/* Подключение шрифтов из Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+/* Настройка шрифтов по умолчанию */
+:root {
+  font-family:
+    Roboto,
+    "Segoe UI",
+    "Inter",
+    "Poppins",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+}
+
+@layer utilities {
+  .container {
+    @apply mx-auto max-w-310 px-4;
+  }
+}
+
+/* Carousel: black navigation arrows */
+.section-carousel {
+  --swiper-navigation-color: #000;
+}
+.section-carousel .swiper-pagination-bullet {
+  background: #000;
+}
+.section-carousel .swiper-pagination-bullet-active {
+  opacity: 1;
+  transform: scale(1.2);
+}
