@@ -9,8 +9,8 @@ interface SlideItem {
 }
 
 const SLIDE_ITEMS: SlideItem[] = [
-  { image: "./energofoodgroup/1.jpeg" },
   { image: "./energofoodgroup/2.jpeg" },
+  { image: "./energofoodgroup/1.jpeg" },
   { image: "./energofoodgroup/3.jpeg" }
 ]
 
