@@ -1,4 +1,7 @@
+import { Fancybox } from "@fancyapps/ui/dist/fancybox/"
+import "@fancyapps/ui/dist/fancybox/fancybox.css"
 import { ChevronLeft, ChevronRight } from "lucide-react"
+import { useEffect, useRef } from "react"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Navigation, Autoplay } from "swiper/modules"
 
@@ -14,9 +17,20 @@ const SLIDE_ITEMS: SlideItem[] = [
   { image: "./energofoodgroup/3.jpeg" }
 ]
 
+const FANCYBOX_GALLERY = "carousel-gallery"
+
 export const SectionCarousel = () => {
+  const fancyboxRootRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const root = fancyboxRootRef.current
+    if (!root) return
+    Fancybox.bind(root, `[data-fancybox="${FANCYBOX_GALLERY}"]`)
+    return () => Fancybox.unbind(root)
+  }, [])
+
   return (
-    <section className="section-carousel py-12 md:py-16">
+    <section className="section-carousel py-12 md:py-16" ref={fancyboxRootRef}>
       <div className="relative px-0!">
         <Swiper
           modules={[Navigation, Autoplay]}
@@ -48,12 +62,18 @@ export const SectionCarousel = () => {
               key={index}>
               <article className="flex h-full max-h-[400px] flex-col overflow-hidden bg-gray-100">
                 <div className="flex min-h-0 flex-1 items-center justify-center overflow-hidden p-2">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="max-h-full max-w-full rounded-xl object-contain"
-                    loading="lazy"
-                  />
+                  <a
+                    data-fancybox={FANCYBOX_GALLERY}
+                    href={item.image}
+                    data-caption={item.title ?? undefined}
+                    className="cursor-zoom-in block">
+                    <img
+                      src={item.image}
+                      alt={item.title ?? ""}
+                      className="max-h-full max-w-full rounded-xl object-contain"
+                      loading="lazy"
+                    />
+                  </a>
                 </div>
                 {!item.title?.length ||
                   (!item.description?.length && (
