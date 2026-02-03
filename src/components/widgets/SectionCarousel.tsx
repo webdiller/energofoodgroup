@@ -36,7 +36,7 @@ export const SectionCarousel = () => {
           modules={[Navigation, Autoplay]}
           spaceBetween={16}
           slidesPerView={1}
-          loop={true}
+          loop={false}
           autoplay={{
             delay: 5500,
             disableOnInteraction: false,
@@ -52,16 +52,16 @@ export const SectionCarousel = () => {
             nextEl: ".carousel-btn-next",
           }}
           breakpoints={{
-            1024: { slidesPerView: 1 },
-            1280: { slidesPerView: 2 },
+            1024: { slidesPerView: 2 },
+            1280: { slidesPerView: 2.5 },
           }}
           className="pb-4!">
           {SLIDE_ITEMS.map((item, index) => (
             <SwiperSlide
               className="h-auto!"
               key={index}>
-              <article className="flex h-full max-h-[400px] flex-col overflow-hidden bg-gray-100">
-                <div className="flex min-h-0 flex-1 items-center justify-center overflow-hidden p-2">
+              <article className="flex h-full flex-col overflow-hidden rounded-lg bg-gray-100">
+                <div className="flex min-h-0 flex-1 items-center justify-center overflow-visible p-2">
                   <a
                     data-fancybox={FANCYBOX_GALLERY}
                     href={item.image}
@@ -70,7 +70,7 @@ export const SectionCarousel = () => {
                     <img
                       src={item.image}
                       alt={item.title ?? ""}
-                      className="max-h-full max-w-full rounded-xl object-contain"
+                      className="max-h-full max-w-full w-auto h-full rounded-xl object-contain"
                       loading="lazy"
                     />
                   </a>
